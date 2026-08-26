@@ -53,35 +53,52 @@ const plans = [
 <section id="pricing" class="section bg-gray-50 dark:bg-gray-800/50">
   <div class="container-custom">
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="inline-block px-4 py-1 rounded-full bg-accent-100 dark:bg-accent-900 text-accent-600 dark:text-accent-300 font-medium text-sm mb-4">
+      <span class="inline-block px-4 py-1 rounded-full bg-green-100 dark:bg-green-950 text-green-700 dark:text-green-300 font-medium text-sm mb-4">
         Nuestros planes
       </span>
-      
+      <div class="flex items-center justify-center gap-2" aria-hidden="true">
+        <span class="h-px w-8 bg-green-700/30"></span>
+        <span class="plan-diamond bg-green-800"></span>
+        <span class="plan-diamond scale-75 bg-accent-500"></span>
+        <span class="plan-diamond bg-green-500"></span>
+        <span class="h-px w-8 bg-green-700/30"></span>
+      </div>
     </div>
     
     <div class="grid md:grid-cols-3 gap-8">
       {plans.map((plan, index) => (
         <div 
-          class={`card p-6 border ${plan.popular ? `border-${plan.color}-500 dark:border-${plan.color}-400` : 'border-gray-200 dark:border-gray-700'} slide-up relative`}
+          class="plan-card card group relative flex h-full flex-col border border-gray-200 p-6 slide-up dark:border-gray-700"
           style={`animation-delay: ${index * 150}ms`}
         >
+          <div class="plan-corner absolute right-0 top-0" aria-hidden="true"></div>
           {plan.popular && (
-            <div class={`absolute top-0 right-0 bg-${plan.color}-500 text-white px-4 py-1 text-sm font-medium rounded-bl-lg rounded-tr-lg`}>
-              Most Popular
+            <div class="absolute top-0 right-0 bg-green-700 text-white px-4 py-1 text-sm font-medium rounded-bl-lg rounded-tr-lg">
+              Más popular
             </div>
           )}
-          
-          <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{plan.name}</h3>
-          <div class="mb-4">
-            <span class="text-4xl font-bold text-gray-900 dark:text-white">Q{plan.price}</span>
+
+          <div class="relative z-10 mb-5 flex items-center justify-end">
+            <span class="text-xs font-semibold tracking-[0.18em] text-green-800/35 dark:text-green-300/35">0{index + 1}</span>
+          </div>
+
+          <h3 class="relative z-10 text-xl font-semibold mb-2 text-gray-900 dark:text-white">{plan.name}</h3>
+          <div class="relative z-10 mb-4">
+            <span class="text-4xl font-bold text-green-800 dark:text-green-400">Q{plan.price}</span>
             <span class="text-gray-500 dark:text-gray-400">/mes</span>
           </div>
-          <p class="text-gray-600 dark:text-gray-300 mb-6">{plan.description}</p>
+          <p class="relative z-10 text-gray-600 dark:text-gray-300 mb-6">{plan.description}</p>
+
+          <div class="mb-6 flex items-center gap-1.5" aria-hidden="true">
+            <span class="h-px flex-1 bg-gradient-to-r from-green-700/25 to-transparent"></span>
+            <span class="plan-diamond scale-75 bg-green-700"></span>
+            <span class="plan-diamond scale-50 bg-accent-500"></span>
+          </div>
           
-          <ul class="space-y-3 mb-8">
+          <ul class="mb-8 flex-1 space-y-3">
             {plan.features.map(feature => (
               <li class="flex items-start">
-                <svg class={`w-5 h-5 text-${plan.color}-500 mr-2 flex-shrink-0 mt-0.5`} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <svg class="w-5 h-5 text-green-600 dark:text-green-400 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                 </svg>
                 <span class="text-gray-600 dark:text-gray-300">{feature}</span>
@@ -89,19 +106,63 @@ const plans = [
             ))}
           </ul>
           
-          <a 
-            href="#signup" 
-            class={`w-full btn ${plan.popular ? `bg-${plan.color}-600 hover:bg-${plan.color}-700 text-white focus:ring-${plan.color}-500` : 'btn-outline'}`}
-          >
-            {plan.cta}
-          </a>
         </div>
       ))}
     </div>
     
     <div class="mt-12 text-center">
       <p class="text-gray-600 dark:text-gray-300 mb-2">¿Necesita un plan personalizado para sus necesidades específicas?</p>
-      <a href="/contact" class="text-primary-600 dark:text-primary-400 font-medium hover:underline">Contacta con nuestro equipo de ventas </a>
+      <a href="/contact" class="text-green-700 dark:text-green-400 font-medium hover:underline">Contacta con nuestro equipo de ventas </a>
     </div>
   </div>
 </section>
+
+<style>
+  .plan-card {
+    border-top: 3px solid #2fab2e;
+    transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+  }
+
+  .plan-card:nth-child(2) {
+    border-top-color: #d9e11a;
+  }
+
+  .plan-card:nth-child(3) {
+    border-top-color: #034d08;
+  }
+
+  .plan-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(47, 171, 46, 0.4);
+    box-shadow: 0 22px 45px -28px rgba(3, 77, 8, 0.5);
+  }
+
+  .plan-diamond {
+    display: block;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 0.1rem;
+    transform: rotate(45deg);
+  }
+
+  .plan-corner {
+    width: 4.5rem;
+    height: 4.5rem;
+    opacity: 0.1;
+    background-image:
+      linear-gradient(135deg, #034d08 25%, transparent 25%),
+      linear-gradient(225deg, #2fab2e 25%, transparent 25%),
+      linear-gradient(45deg, #d9e11a 25%, transparent 25%);
+    background-position: 18px 0, 18px 0, 0 18px;
+    background-size: 36px 36px;
+    mask-image: linear-gradient(225deg, black, transparent 72%);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .plan-card,
+    .plan-card:hover {
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
