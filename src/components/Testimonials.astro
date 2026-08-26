@@ -1,25 +1,25 @@
 ---
 const testimonials = [
   {
-    content: "Code-QX ha transformado por completo la forma en la que gestionamos nuestras tareas diarias. Sus servicios son altamente recomendados han incrementado la productividad de nuestro equipo en más del 75%.",
-    author: "Alejandra Muñoz",
-    position: "Product Manager",
-    company: "Telus",
-    avatar: "https://randomuser.me/api/portraits/women/32.jpg"
+    content: "Code-QX me ha proporcionado un sistema bastante completo, realmente cumple con optimizar los procesos de mi negocio a un precio realmente razonable",
+    author: "Henry Mendez",
+    position: "Dueño de Tejedora MZ TIPICOS S.A.",
+    company: "MZ TIPICOS S.A.",
+    avatar: "public/imagenes/sinFoto.jpeg"
   },
   {
-    content: "Estamos muy satisfechos con el servicio que nos ha brindado Code-QX, dejando atrás los procesos manuales y aburridos que han dejado los antiguos sistemas. Ahora todo es más rápido y eficiente.",
-    author: "Juan Pérez",
-    position: "Alcalde de Nebaj",
-    company: "Municipalidad de Nebaj",
-    avatar: "https://randomuser.me/api/portraits/men/46.jpg"
+    content: "Estoy muy satisfecha con el servicio de Code-QX. El sistema es completo, fácil de usar y ha sido de gran ayuda para mejorar y agilizar los proceso de mi negocio. Además, la atención fue excelente y el precio muy razonable. ",
+    author: "Ashlee Ying Tse Castellanos",
+    position: "Dueña de Aroma",
+    company: "AROMA S.A.",
+    avatar: "public/imagenes/sinFoto.jpeg"
   },
   {
-    content: "Los servicios que nos ha proporcionado Code-QX han sido de gran ayuda para nuestra cooperativa. Ahora podemos gestionar de forma más eficiente los recursos y mejorar la calidad de vida de nuestros asociados.",
-    author: "María López",
-    position: "Gerente",
-    company: "Cooperativa Totonicapán",
-    avatar: "https://randomuser.me/api/portraits/women/65.jpg"
+    content: "Muy satisfechos con el resultado, la página que diseñaron permitirá tener mucho más alcance, y darnos a conocer por todo el país y lo que hacemos para mejorar la educación.",
+    author: "Samuel Vásquez",
+    position: "Director",
+    company: "Fundación Transformando Vidas",
+    avatar: "public/imagenes/sinFoto.jpeg"
   }
 ];
 ---
@@ -31,6 +31,13 @@ const testimonials = [
         opiniones
       </span>
       <h2 class="mb-6 text-gray-900 dark:text-white">Lo que dicen nuestros clientes</h2>
+      <div class="mb-6 flex items-center justify-center gap-2" aria-hidden="true">
+        <span class="h-px w-8 bg-green-700/30"></span>
+        <span class="testimonial-diamond bg-green-800"></span>
+        <span class="testimonial-diamond scale-75 bg-accent-500"></span>
+        <span class="testimonial-diamond bg-green-500"></span>
+        <span class="h-px w-8 bg-green-700/30"></span>
+      </div>
       <p class="text-gray-600 dark:text-gray-300">
         No se fíe solo de nuestras palabras. Esto es lo que nuestros clientes hablan sobre la experiencia que han tenido con nuestros servicios.
       </p>
@@ -39,24 +46,28 @@ const testimonials = [
     <div class="grid md:grid-cols-3 gap-8">
       {testimonials.map((testimonial, index) => (
         <div 
-          class="card p-6 border border-gray-200 dark:border-gray-700 slide-up" 
+          class="testimonial-card card relative p-6 border border-gray-200 dark:border-gray-700 slide-up" 
           style={`animation-delay: ${index * 150}ms`}
         >
-          <div class="mb-6">
-            {[...Array(5)].map(() => (
-              <svg class="w-5 h-5 inline-block text-warning-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-              </svg>
-            ))}
+          <div class="testimonial-corner absolute right-0 top-0" aria-hidden="true"></div>
+
+          <svg class="mb-4 h-8 w-8 text-green-700/70 dark:text-green-400/70" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+            <path d="M13.2 7.1C7.5 9.2 4.1 13.5 4.1 19c0 3.8 2.3 6.2 5.6 6.2 3 0 5.1-2.1 5.1-5 0-2.7-1.8-4.5-4.3-4.8.5-2.5 2.3-4.5 5.2-6L13.2 7.1Zm13 0C20.5 9.2 17.1 13.5 17.1 19c0 3.8 2.3 6.2 5.6 6.2 3 0 5.1-2.1 5.1-5 0-2.7-1.8-4.5-4.3-4.8.5-2.5 2.3-4.5 5.2-6l-2.5-2.3Z" />
+          </svg>
+
+          <blockquote class="relative z-10 mb-6 text-gray-700 dark:text-gray-300 italic">"{testimonial.content}"</blockquote>
+
+          <div class="mb-5 flex items-center gap-1.5" aria-hidden="true">
+            <span class="h-px flex-1 bg-gradient-to-r from-green-700/25 to-transparent"></span>
+            <span class="testimonial-diamond scale-75 bg-green-700"></span>
+            <span class="testimonial-diamond scale-50 bg-accent-500"></span>
           </div>
           
-          <blockquote class="mb-6 text-gray-700 dark:text-gray-300 italic">"{testimonial.content}"</blockquote>
-          
-          <div class="flex items-center">
+          <div class="relative z-10 flex items-center">
             <img 
               src={testimonial.avatar} 
               alt={testimonial.author} 
-              class="w-12 h-12 rounded-full mr-4 object-cover"
+              class="w-12 h-12 rounded-full mr-4 object-cover ring-2 ring-green-700/15 ring-offset-2 ring-offset-white dark:ring-green-400/20 dark:ring-offset-secondary-900"
               loading="lazy"
             />
             <div>
@@ -68,16 +79,27 @@ const testimonials = [
       ))}
     </div>
     
-    <div class="mt-16 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl p-8 md:p-12 relative overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-r from-primary-600/30 to-secondary-600/30 backdrop-blur-sm"></div>
-      <div class="relative z-10 text-center md:text-left md:flex items-center justify-between">
-        <div class="mb-6 md:mb-0 md:mr-8">
-          <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">¿Listo para transformar tu negocio?</h3>
-          <p class="text-white/80 max-w-2xl">Únase a los cientos de clientes satisfechos que han mejorado su manera de trabajar con nuestros servicios profesionales</p>
+    <div class="business-cta mt-16 relative overflow-hidden rounded-3xl border border-green-300/20 bg-gradient-to-br from-green-950 via-green-900 to-green-700 p-8 shadow-xl shadow-green-950/15 md:p-12">
+      <div class="cta-texture absolute inset-0 opacity-20" aria-hidden="true"></div>
+      <div class="absolute -right-16 -top-20 h-56 w-56 rounded-full bg-accent-400/15 blur-3xl" aria-hidden="true"></div>
+      <div class="absolute -bottom-20 left-1/3 h-48 w-48 rounded-full bg-green-400/15 blur-3xl" aria-hidden="true"></div>
+      <div class="cta-corner absolute right-5 top-5 hidden opacity-60 sm:flex" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+
+      <div class="relative z-10 text-center md:flex md:items-center md:justify-between md:text-left">
+        <div class="mb-7 md:mb-0 md:mr-10">
+          <div class="mb-4 flex items-center justify-center gap-2 md:justify-start" aria-hidden="true">
+            <span class="h-px w-8 bg-accent-400/70"></span>
+            <span class="testimonial-diamond bg-accent-400"></span>
+            <span class="testimonial-diamond scale-75 bg-green-300"></span>
+          </div>
+          <h3 class="mb-4 text-2xl font-bold text-white md:text-3xl">¿Listo para transformar tu negocio?</h3>
+          <p class="max-w-2xl text-green-50/80">Únase a los cientos de clientes satisfechos que han mejorado su manera de trabajar con nuestros servicios profesionales.</p>
         </div>
-        <a href="#signup" class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white text-primary-600 hover:bg-gray-100 focus:ring-white">
+        <a href="#signup" class="group inline-flex shrink-0 items-center justify-center rounded-xl bg-accent-400 px-6 py-3 font-semibold text-green-950 shadow-lg shadow-green-950/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-300 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-accent-300 focus:ring-offset-2 focus:ring-offset-green-900">
           Comience ahora
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
           </svg>
         </a>
@@ -85,3 +107,75 @@ const testimonials = [
     </div>
   </div>
 </section>
+
+<style>
+  .testimonial-card {
+    transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(47, 171, 46, 0.3);
+    box-shadow: 0 18px 40px -24px rgba(3, 77, 8, 0.45);
+  }
+
+  .testimonial-diamond {
+    display: block;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 0.1rem;
+    transform: rotate(45deg);
+  }
+
+  .testimonial-corner {
+    width: 4.5rem;
+    height: 4.5rem;
+    opacity: 0.13;
+    background-image:
+      linear-gradient(135deg, #034d08 25%, transparent 25%),
+      linear-gradient(225deg, #2fab2e 25%, transparent 25%),
+      linear-gradient(45deg, #d9e11a 25%, transparent 25%);
+    background-position: 18px 0, 18px 0, 0 18px;
+    background-size: 36px 36px;
+    mask-image: linear-gradient(225deg, black, transparent 72%);
+  }
+
+  .cta-texture {
+    background-image:
+      repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.08) 0, rgba(255, 255, 255, 0.08) 1px, transparent 1px, transparent 6px),
+      repeating-linear-gradient(90deg, rgba(217, 225, 26, 0.08) 0, rgba(217, 225, 26, 0.08) 1px, transparent 1px, transparent 10px);
+    mask-image: linear-gradient(90deg, black, transparent 82%);
+  }
+
+  .cta-corner {
+    gap: 0.4rem;
+  }
+
+  .cta-corner span {
+    display: block;
+    width: 0.75rem;
+    height: 0.75rem;
+    border: 2px solid #86efac;
+    border-radius: 0.1rem;
+    transform: rotate(45deg);
+  }
+
+  .cta-corner span:nth-child(2) {
+    background: #d9e11a;
+    border-color: #d9e11a;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .testimonial-card,
+    .testimonial-card:hover {
+      transform: none;
+      transition: none;
+    }
+
+    .business-cta a,
+    .business-cta a:hover {
+      transform: none;
+      transition: none;
+    }
+  }
+</style>

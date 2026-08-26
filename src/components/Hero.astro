@@ -1,15 +1,32 @@
 ---
 ---
-<section class="relative pt-32 pb-20 md:pt-40 overflow-hidden hero-section">
+<section class="hero-section relative isolate overflow-hidden bg-gradient-to-b from-green-50 via-white to-white pt-32 pb-20 md:pt-40 dark:from-secondary-900 dark:via-secondary-950 dark:to-secondary-950">
+  <div class="woven-background absolute inset-0 -z-20 opacity-55 dark:opacity-20" aria-hidden="true"></div>
+  <div class="absolute -left-28 top-16 -z-10 h-72 w-72 rounded-full bg-green-300/20 blur-3xl dark:bg-green-500/10" aria-hidden="true"></div>
+  <div class="absolute -right-24 bottom-8 -z-10 h-64 w-64 rounded-full bg-accent-300/20 blur-3xl dark:bg-accent-400/10" aria-hidden="true"></div>
+
+  <div class="textile-motif absolute -left-4 top-1/2 hidden -translate-y-1/2 opacity-25 xl:grid dark:opacity-15" aria-hidden="true">
+    <span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+  </div>
+
   <div class="container-custom relative z-10">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
+    <div class="grid items-center gap-14 md:grid-cols-2 lg:gap-16">
       <div class="slide-up" transition:animate="slide">
-        <h1 class="mb-6 text-secondary-900 dark:text-white leading-tight">
-          <span class="text-primary-600 dark:text-primary-400">Automatizando</span> tu vida<br>
+        <div class="mb-6 flex items-center gap-2" aria-hidden="true">
+          <span class="h-px w-8 bg-green-700/40"></span>
+          <span class="ornament-diamond bg-green-800"></span>
+          <span class="ornament-diamond scale-75 bg-accent-500"></span>
+          <span class="ornament-diamond bg-green-500"></span>
+        </div>
+
+        <h1 class="mb-6 leading-tight tracking-tight text-secondary-900 dark:text-white">
+          <span class="highlight-text relative inline-block text-green-700 dark:text-green-400">Automatizando</span> tu vida<br>
           y tu empresa
         </h1>
         <p class="text-xl text-secondary-600 dark:text-secondary-300 mb-8 max-w-lg">
-          Con nuestros servicios podrás automatizar procesos, gestionar tareas y mejorar la productividad de tu empresa con los precios más accesibles del mercado.
+          Con nuestros servicios podrás automatizar procesos, gestionar tareas y mejorar la productividad de tu empresa con los precios más accesibles ajustados a tu bolsillo.
         </p>
         <div class="flex flex-wrap gap-4">
           <a href="/contact" class="btn-primary">
@@ -19,17 +36,76 @@
       </div>
       
       <div class="relative fade-in" transition:animate="fade">
-        <!-- Animated Elephant SVG Hero Image -->
-        <div class="w-full max-w-lg mx-auto">
-          
-          <img src="imagenes/principal.jpg" class="w-full h-auto drop-shadow-xl rounded-3xl" alt="">
+        <div class="absolute -inset-3 -z-10 rounded-[2rem] border border-green-700/10 bg-green-200/20 rotate-2 dark:border-green-400/10 dark:bg-green-500/5" aria-hidden="true"></div>
+        <div class="relative w-full max-w-lg mx-auto overflow-hidden rounded-3xl border border-green-800/10 bg-white p-2 shadow-2xl shadow-green-950/15 dark:border-green-300/10 dark:bg-secondary-900">
+          <img src="/imagenes/principal.jpg" class="w-full h-auto rounded-[1.25rem] object-cover" alt="Persona utilizando tecnología para automatizar procesos empresariales">
+          <span class="image-ornament absolute left-5 top-5" aria-hidden="true"></span>
+          <span class="image-ornament absolute bottom-5 right-5 rotate-180" aria-hidden="true"></span>
         </div>
       </div>
     </div>
   </div>
-  
+</section>
+
 <style>
-  /* Add keyframes for additional animations if needed */
+  .woven-background {
+    background-image:
+      repeating-linear-gradient(0deg, rgba(3, 77, 8, 0.045) 0, rgba(3, 77, 8, 0.045) 1px, transparent 1px, transparent 5px),
+      repeating-linear-gradient(90deg, rgba(47, 171, 46, 0.035) 0, rgba(47, 171, 46, 0.035) 1px, transparent 1px, transparent 7px);
+    mask-image: linear-gradient(to bottom, black 10%, transparent 94%);
+  }
+
+  .ornament-diamond {
+    display: block;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 0.1rem;
+    transform: rotate(45deg);
+  }
+
+  .highlight-text::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -0.08em;
+    left: 0;
+    height: 0.1em;
+    border-radius: 9999px;
+    background: repeating-linear-gradient(90deg, #034d08 0 12px, #3bc935 12px 24px, #d9e11a 24px 36px);
+    opacity: 0.8;
+  }
+
+  .textile-motif {
+    grid-template-columns: repeat(3, 1rem);
+    gap: 0.35rem;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .textile-motif span {
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid #2fab2e;
+  }
+
+  .textile-motif span:nth-child(2n) {
+    background: #d9e11a;
+    border-color: #d9e11a;
+  }
+
+  .textile-motif span:nth-child(5) {
+    background: #034d08;
+    border-color: #034d08;
+  }
+
+  .image-ornament {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-top: 4px solid #d9e11a;
+    border-left: 4px solid #2fab2e;
+    border-radius: 0.5rem 0 0 0;
+    filter: drop-shadow(0 1px 2px rgba(3, 77, 8, 0.25));
+  }
+
   @keyframes float {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
@@ -39,5 +115,12 @@
   /* Apply floating animation to the entire SVG container */
   .fade-in svg {
     animation: float 6s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-section .fade-in,
+    .hero-section .slide-up {
+      animation: none;
+    }
   }
 </style>
